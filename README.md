@@ -1,12 +1,12 @@
 2L_enum
 
 ----------
-0. Purpose
+# 0. Purpose #
 ----------
 Enumerate all the combinatorial types of 2-level polytopes in dimension D between 3 and 7
 
 ---------------
-1. Dependencies
+# 1. Dependencies #
 ---------------
 The code has three main dependencies
 - gcc compiler version >=6.0 or clang
@@ -16,12 +16,12 @@ Nauty's installation directory has to be passed to the compiler as NAUTYHOME=/pa
 Otherwise, the compile will assume that nauty is installed in $(HOME)/.opt/nauty
 
 ---------------
-2. Installation
+# 2. Installation #
 ---------------
 In order to build the code, just run 'make' in the main folder of this repository.
 
 --------
-3. Usage
+#3. Usage #
 --------
 In order to run the code, type a command of the form:
 
@@ -47,7 +47,7 @@ which passes the values D = 3 and verbose_flag = 3 to the enumeration algorithm.
 The user is advised that there might be some deviations in the running times due to the fact that the machine used for the experiments produced in the publication had a different processor. In the case of the current server, the code seems to run slightly faster with respect to the execution times in Table 2. 
 
 ---------------------
-4. Output of the code
+# 4. Output of the code #
 ---------------------
 For every D = 3, ..., 7, the code writes a file (D)d.txt containing the list of all slack matrices of D-dimensional polytopes.
 
@@ -77,9 +77,9 @@ It uses the H-embedding of the facets of the base to compute the reduced H-embed
 - It computes the set of all slabs that are valid for the base P_0, as defined in Section 4.1 of the paper.
 
 - It builds the incidence vectors of points vs slabs and of slabs vs points:
-	* first for every point x in the reduced ground set X, it prints a dynamic_bitsets (of length #{valid slabs for P_0}) having a 1 in the positions indexed by all slabs E such that 0 <= x(E) <= 1.
+	1. first for every point x in the reduced ground set X, it prints a dynamic_bitsets (of length #{valid slabs for P_0}) having a 1 in the positions indexed by all slabs E such that 0 <= x(E) <= 1.
 
-	* then, dually, for every slab E valid for P_0 and computed at the previous step, it prints a dynamic_bitsets of length |X| having a 1 in the positions indexed by all points x in the reduced ground set X such that 0 <= x(E) <= 1.
+	2. then, dually, for every slab E valid for P_0 and computed at the previous step, it prints a dynamic_bitsets of length |X| having a 1 in the positions indexed by all points x in the reduced ground set X such that 0 <= x(E) <= 1.
 
 - it constructs the incompatibility matrix, as the matrix I corresponding to the incompatibility relation among pairs of points of the reduced ground set X. It is defined in Section 5.1.
 
@@ -89,41 +89,41 @@ In output we obtain several lines like the following one, for the case when the 
       | 2-level | next_cl      | slack-matrix | 2-lev_time
 0001  | 1       | 5.295e-06  s | 2.0757e-05 s | 4.829e-05  s 
 
-	* In the first column, we find a dynamic_bitset which is a characteristic vector for the points (represented as ublas::vector of integers) of the ground set that belong to the closed set A. In the example, "0001" tells us that the first point of the ground set belongs to A. 
+	1. In the first column, we find a dynamic_bitset which is a characteristic vector for the points (represented as ublas::vector of integers) of the ground set that belong to the closed set A. In the example, "0001" tells us that the first point of the ground set belongs to A. 
 	In this case, the (H-embedding of the reduced) ground set is 
 
 	[3](1,0,0) [3](1,0,1) [3](1,1,-1) [3](1,1,0) 
 
 	Thus, we deduce that only the point [3](1,0,0) is in A.
 
-	* The second column, labeled "2-level", reports the result of the 2-level test for P := conv(P_0 U A):
+	2. The second column, labeled "2-level", reports the result of the 2-level test for P := conv(P_0 U A):
 	'1' means that test is positive
 	'0' means that test is negative 
 	'-' means that the 2-level test is skipped. This happens if the number of vertices of the base P_0 is less than of equal to the number of vertices of any of the facets of the D-dimensional polytope we just constructed, adding the point in the closed set A. In this case, in fact, such polytope will be enumerated further on, when such facet will be assumed as base.
 
-	* the third column "next_cl" reports the time for the computation of the next closed set, performed using Ganter's next-closure algorithm.
+	3. the third column "next_cl" reports the time for the computation of the next closed set, performed using Ganter's next-closure algorithm.
 
-	* the forth column "slack-matrix" reports the time for the construction of the slack matrix of P := conv(P_0 U A) starting from the valid slabs and the point in vert(P_0) U A
+	4. the forth column "slack-matrix" reports the time for the construction of the slack matrix of P := conv(P_0 U A) starting from the valid slabs and the point in vert(P_0) U A
 
-	* finally, in the fifth column "2-lev_time", we report the time for the 2-level test.
+	5. finally, in the fifth column "2-lev_time", we report the time for the 2-level test.
 
 - for every base, the algorithm prints the number of closed sets found, the number of 2-level polytopes and the total elapsed time for that base. 
 
 - In the end, it prints the total number of closed sets found, the total number of performed 2-level tests, the final number of non-isomorphic 2-level polytopes and the overall elapsed time.
 
 Moreover, the very last table we compare the numbers for combinatorially inequivalent 2-level polytopes and their sub-classes:
-	* D: dimension in exam
-	* Delta-f: 2-level polytopes with one simplicial facet
-	* CS: centrally symmetric 2-level polytopes
-	* STAB: stable set polytopes of perfect graphs
-	* polar: 2-level polytopes whose polar is 2-level
-	* susp: 2-level suspensions, as defined in Section 7
-	* (under the "2L" column we print again the number of non-isomorphic 2-level polytopes, for comparison)
+	1. D: dimension in exam
+	2. Delta-f: 2-level polytopes with one simplicial facet
+	3. CS: centrally symmetric 2-level polytopes
+	4. STAB: stable set polytopes of perfect graphs
+	5. polar: 2-level polytopes whose polar is 2-level
+	6. susp: 2-level suspensions, as defined in Section 7
+	7. (under the "2L" column we print again the number of non-isomorphic 2-level polytopes, for comparison)
 
 This data in this last table are reported in Table 1 and Table 3 in the article Enumeration of 2-level polytopes.
 
 ----------------------
-5. Outline of the code
+# 5. Outline of the code #
 ----------------------
 The sorce code is contained in the file "2L_enum.cpp", in the directory "$HOME/2L-enumeration_src".
 
@@ -163,6 +163,6 @@ takes in input a 0/1 slack matrix S, constructed by the function construct_slack
 The main function just uses of all the function above and computes the output described in the previous section of this README file.
 
 -----------
-6. Contacts
+# 6. Contacts #
 -----------
 mmacchia@ulb.ac.be
