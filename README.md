@@ -1,6 +1,3 @@
-2L_enum
-
-
 # 0. Purpose #
 
 Enumerate all the combinatorial types of 2level polytopes in dimension D between 3 and 7
