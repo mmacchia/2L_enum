@@ -129,41 +129,41 @@ This data in this last table are reported in Table 1 and Table 3 in the article 
 
 # 5. Outline of the code #
 
-The sorce code is contained in the file "2L_enum.cpp", in the directory "$HOME/2Lenumeration_src".
+The sorce code is contained in the file `2L_enum.cpp`.
 
 It is organized in several subfunction. Referring to the output in the previous section, we now describe in which part each of them intervenes.
 
- sqsubseteq, inc
+- `sqsubseteq`, `inc`
 are used in the Ganter's algorithm, see: B. Ganter and K. Reuter, Finding all closed sets: A general approach, Order 8 (1991), no. 3, 283–290. 
 
- discreteconvexhull_cl, incompatibility_cl
+- `discreteconvexhull_cl`, `incompatibility_cl`
 implement the closure operators defined in Sections 4.1, 5.1 respectively
 
- hash_matrix
+- `hash_matrix`
 is used for hashing slack matrices: returns (num_cols  1) * 2^D + (num_rows  1)
 
- canonicize
+- `canonicize`
 calls Nauty to obtain the canonical form of the nonincidence graph of slack matrix S
 
- checksimplicialcore, extractM, invertM
+- `checksimplicialcore`, `extractM`, `invertM`
 are used in to preprocess the slack matrix of the base polytope P_0
 
- construct_slack_matrix
+- `construct_slack_matrix`
 given the vertices of the base polytope P_0, the points in the closed set A, and the family S of valid slabs for vert(P_0) U A, it constructs the slack matrix of the pair for the pair (conv(vert(P_0) U A),S), formally defined in Definition 25.
 
- istwolevelpolytope
+- `istwolevelpolytope`
 checks whether a given 0/1 matrix is the slack matrix of a Ddimensional 2level polytope, by using the list of (D1)dimensional 2level polytopes. This test is purely combinatorial and relies on Lemma 26.
 
- is_susp
+- `is_susp`
 tests if the slack matrix in input is a 2level suspension
 
- is_polar
+- `is_polar`
 takes a slack matrix in input and tests if the polar of the corresponding polytope is 2level
 
- to_list
+- `to_list`
 takes in input a 0/1 slack matrix S, constructed by the function construct_slack_matrix. Checks if any isomorphic copy of it is already in the list of Ddimensional 2level slack matrices we are incrementally building. If the answer is negative, it adds S to the list. Additionally, if verbose_flag is different from 0, it performs the tests for subclasses of 2level polytopes (Deltaf, CS, STAB, polar, susp  see the previous section of this README file)
 
- main
+- `main`
 The main function just uses of all the function above and computes the output described in the previous section of this README file.
 
 
