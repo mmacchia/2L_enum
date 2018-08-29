@@ -751,9 +751,9 @@ int main(int argc, const char *argv[]) {
     int verbose = atoi(argv[2]);
 
     // Warnings and bound on D and verbose
-    if ((D != 3) && (D != 4) && (D != 5) && (D != 6) && (D != 7)) {
+    if ((D != 1) && (D != 2) &&(D != 3) && (D != 4) && (D != 5) && (D != 6) && (D != 7)) {
         std::cout << "\nERROR: Input (dimension D) out of bounds." << std::endl;
-        std::cout << "Please insert an integer value between 3 and 7 as dimension D." << std::endl;
+        std::cout << "Please insert an integer value between 1 and 7 as dimension D." << std::endl;
         std::cout << "The input should be of the form: ./2L_enum D verbose_flag." << std::endl << std::endl;
         return 1;
     }
