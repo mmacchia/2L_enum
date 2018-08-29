@@ -25,7 +25,7 @@ In order to run the code, type a command of the form:
 ./2L_enum D verbose_flag
 ````
 where:
-- D is an integer between 3 and 7. For every such D, the algorithm enumerates all combinatorial types of D dimensional 2level polytopes and creates a txt file with all the slack matrices. The algorithm takes a file named (D1).txt in input, containing the list of all (D1)dimensional slack matrices of 2level polytopes.
+- D is an integer between 3 and 7. For every such D, the algorithm enumerates all combinatorial types of D dimensional 2level polytopes and creates a txt file with all the slack matrices. The algorithm takes a file named (D-1).txt in input, containing the list of all (D-1)dimensional slack matrices of 2level polytopes.
 Warning: the computation time for D = 7 is expected to take up to ~61 hours of computation time (on AMD Opteron(TM) 6134 2.3 GHz).
 - verbose_flag is an integer between 0 and 3.
 
@@ -146,7 +146,7 @@ calls Nauty to obtain the canonical form of the nonincidence graph of slack matr
 are used in to preprocess the slack matrix of the base polytope P_0
 
 - `construct_slack_matrix`
-given the vertices of the base polytope P_0, the points in the closed set A, and the family S of valid slabs for vert(P_0) U A, it constructs the slack matrix of the pair for the pair (conv(vert(P_0) U A),S), formally defined in Definition 25.
+given the vertices of the base polytope P_0, the points in the closed set A, and the family S of valid slabs for vert(P_0) U A, it constructs the slack matrix for the pair (conv(vert(P_0) U A),S), formally defined in Definition 25.
 
 - `istwolevelpolytope`
 checks whether a given 0/1 matrix is the slack matrix of a Ddimensional 2level polytope, by using the list of (D1)dimensional 2level polytopes. This test is purely combinatorial and relies on Lemma 26.
