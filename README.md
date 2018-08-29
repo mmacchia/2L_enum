@@ -1,6 +1,6 @@
 # 0. Purpose #
 
-Enumerate all the combinatorial types of 2level polytopes in dimension D between 3 and 7
+Enumerate all the combinatorial types of 2level polytopes in dimension D between 1 and 7
 
 
 # 1. Dependencies #
@@ -25,7 +25,7 @@ In order to run the code, type a command of the form:
 ./2L_enum D verbose_flag
 ````
 where:
-- D is an integer between 3 and 7. For every such D, the algorithm enumerates all combinatorial types of D dimensional 2level polytopes and creates a txt file with all the slack matrices. The algorithm takes a file named (D-1).txt in input, containing the list of all (D-1)dimensional slack matrices of 2level polytopes.
+- D is an integer between 1 and 7. For every such D, the algorithm enumerates all combinatorial types of D dimensional 2level polytopes and creates a txt file with all the slack matrices. The algorithm takes a file named (D-1).txt in input, containing the list of all (D-1)dimensional slack matrices of 2level polytopes.
 Warning: the computation time for D = 7 is expected to take up to ~61 hours of computation time (on AMD Opteron(TM) 6134 2.3 GHz).
 - verbose_flag is an integer between 0 and 3.
 
@@ -47,7 +47,7 @@ The user is advised that there might be some deviations in the running times due
 
 # 4. Output of the code #
 
-For every D = 3, ..., 7, the code writes a file (D)d.txt containing the list of all slack matrices of D-dimensional polytopes.
+For every D = 1, ..., 7, the code writes a file (D)d.txt containing the list of all slack matrices of D-dimensional polytopes.
 
 We describe the terminal output of the code for verbose_flag = 3. The other cases are subsets of the case verbose_flag = 3.
 
